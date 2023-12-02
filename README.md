@@ -75,15 +75,18 @@ This endpoint allows you to make predictions for the next time steps based on th
 
 **Example Request:**
 ```bash
-curl -X GET "http://127.0.0.1:8000/predict?input_data=0.22" \
-  -H "accept: application/json"
+curl -X GET "http://127.0.0.1:8000/predict?input_data=0.22"
 ```
 
 ### 3. Update Model Re-training Conditions
 
 #### `PUT /update_configs`
 
-This endpoint allows you to update constant variables for model re-training conditions.
+This endpoint allows you to update constant variables for model re-training conditions:
+
+- `RMSE THRESHOLD`: This is a decimal number that sets the maximum allowed prediction error. If the error goes beyond this value, it's considered too high.
+- `RMSE PATIENT`: This is an integer number. It represents how many times in a row we're okay with the error exceeding the threshold. If it happens more times consecutively, we might want to consider retraining the model.
+- `TRIALS`: This is the number of times we repeat the process of finding the best model. A larger value might result in a better model, but it also takes more time.
 
 **Parameters:**
 - `new_rmse_patience`: New value for RMSE patience (int).
