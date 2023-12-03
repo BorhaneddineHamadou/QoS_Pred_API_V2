@@ -63,7 +63,8 @@ curl -X POST "http://127.0.0.1:8000/main" \
   -F "target_columns=node1_delay" \
   -F "forecasting_horizon=7"
 ```
-
+**Response:**
+A JSON that includes the optimal model found for the series along with its parameters.
 ### 2. Make Predictions
 
 #### `GET /predict`
@@ -77,7 +78,8 @@ This endpoint allows you to make predictions for the next time steps based on th
 ```bash
 curl -X GET "http://127.0.0.1:8000/predict?input_data=0.22"
 ```
-
+**Response:**
+A string-formatted list containing predictions (predicted values).
 ### 3. Update Model Re-training Conditions
 
 #### `PUT /update_configs`
@@ -101,7 +103,7 @@ curl -X PUT "http://127.0.0.1:8000/update_configs" \
   -d '{"new_rmse_patience": 5, "new_rmse_threshold": 0.75, "new_trials": 5}'
 ```
 
-### Response
+**Response:**
 
 - Successful responses will include a JSON object with relevant information.
 - Errors will be accompanied by an error message.
