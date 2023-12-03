@@ -71,7 +71,7 @@ curl -X POST "http://127.0.0.1:8000/main" \
 This endpoint allows you to make predictions for the next time steps based on the provided input data.
 
 **Parameters:**
-- `input_data`: The input data for prediction (float).
+- `input_data`: The actual input data (float).
 
 **Example Request:**
 ```bash
