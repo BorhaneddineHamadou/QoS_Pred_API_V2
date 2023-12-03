@@ -51,7 +51,7 @@ This endpoint allows you to upload and process a CSV or Excel file for time seri
 
 **Parameters:**
 - `file`: The CSV or Excel file containing time series data.
-- `target_columns`: Specify the target column as a comma-separated string.
+- `target_columns`: Specify the target column.
 - `forecasting_horizon`: Specify the forecasting horizon as an integer.
 
 **Example Request:**
