@@ -164,9 +164,9 @@ async def predict_endpoint(input_data: float):
     in_data = processed_dataset[[selected_columns[0]]]
 
     if hyperparameters['forecasting_model'] in ["RNN", "LSTM", "GRU", "ESN"]:
-        in_data = in_data['node1_delay'].tail(hyperparameters['look_back'])
+        in_data = in_data[selected_columns[0]].tail(hyperparameters['look_back'])
     else :
-        in_data = in_data['node1_delay'].tail(hyperparameters['window_length'])
+        in_data = in_data[selected_columns[0]].tail(hyperparameters['window_length'])
     
     pred = auto_forecast(model, in_data.values, selected_horizon, hyperparameters)
     predictions.append(pred[0])
